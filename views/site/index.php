@@ -54,7 +54,7 @@
 <script type="text/javascript">
 
 
-    $(document).ready(
+    $(document).load(
 
         function() {
             $('#myTabs a').click(function (e) {
@@ -69,7 +69,7 @@
 
     function drawChart(){
 
-        $.get("retrieve",
+        $.get("site/retrieve",
             function(result){
 
                 var html = "";
@@ -123,7 +123,7 @@
 
 
                 // Set chart options
-                var options = {'title':'Top-5 YouTube Videos Comment Count',
+                var options = {'title':'Top-5 YouTube Videos View Count',
                     'width':800,
                     'height':400};
 
@@ -141,7 +141,7 @@
 
 
                 // Set chart options
-                var options = {'title':'Top-5 YouTube Videos View Count',
+                var options = {'title':'Top-5 YouTube Videos Comment Count',
                     'width':800,
                     'height':400};
 
