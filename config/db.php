@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yt',
+    'dsn' => 'mysql:host=mysql29026-yii2sample.mycloud.by;dbname=yt',
     'username' => 'root',
-    'password' => 'root2015',
+    'password' => 'OxqvBu6GMZ',
     'charset' => 'utf8',
 ];
