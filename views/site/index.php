@@ -18,7 +18,7 @@
     <div class="body-content">
 
         <div>
-
+	    <p><button class="btn btn-lg btn-primary" onclick="funcRefreshData();">Update data manually</button></p>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#videosList" aria-controls="home" role="tab" data-toggle="tab">Videos List</a></li>
