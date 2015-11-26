@@ -1,26 +1,6 @@
-$(document).load(
-
-    function() {
-
-        $(document).load(
-            function() {
-                $('#myTabs a').click(function (e) {
-                    e.preventDefault();
-                    $(this).tab('show');
-                });
-            }
-        );
-
-    }
-);
-
-google.load('visualization', '1.0', {'packages':['corechart']});
-
-google.setOnLoadCallback(drawChart);
-
-function drawChart(){
-
-    $.get("site/retrieve",
+function funcRetrieveData(){
+	
+  $.get("/site/retrieve",
         function (result) {
 
             var html = "";
@@ -63,7 +43,7 @@ function drawChart(){
             html += "</table>";
             $("#videosList").html(html);
 
-// Create the data table.
+
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'View Count');
@@ -73,14 +53,14 @@ function drawChart(){
             }
 
 
-// Set chart options
+
             var options = {
                 'title': 'Top-5 YouTube Videos View Count',
                 'width': 800,
                 'height': 400
             };
 
-// Instantiate and draw our chart, passing in some options.
+
             var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
             chart.draw(data, options);
 
@@ -93,14 +73,14 @@ function drawChart(){
             }
 
 
-// Set chart options
+
             var options = {
                 'title': 'Top-5 YouTube Videos Comment Count',
                 'width': 800,
                 'height': 400
             };
 
-// Instantiate and draw our chart, passing in some options.
+
             var chart = new google.visualization.BarChart(document.getElementById('chart2_div'));
             chart.draw(data, options);
 
@@ -113,14 +93,14 @@ function drawChart(){
             }
 
 
-// Set chart options
+
             var options = {
                 'title': 'Top-5 YouTube Videos Like Count',
                 'width': 800,
                 'height': 400
             };
 
-// Instantiate and draw our chart, passing in some options.
+
             var chart = new google.visualization.BarChart(document.getElementById('chart3_div'));
             chart.draw(data, options);
 
@@ -133,14 +113,14 @@ function drawChart(){
             }
 
 
-// Set chart options
+
             var options = {
                 'title': 'Top-5 YouTube Videos Dislike Count',
                 'width': 800,
                 'height': 400
             };
 
-// Instantiate and draw our chart, passing in some options.
+
             var chart = new google.visualization.BarChart(document.getElementById('chart4_div'));
             chart.draw(data, options);
 
@@ -153,17 +133,53 @@ function drawChart(){
             }
 
 
-// Set chart options
+
             var options = {
                 'title': 'Top-5 YouTube Videos Subscriber Count',
                 'width': 800,
                 'height': 400
             };
 
-// Instantiate and draw our chart, passing in some options.
+
             var chart = new google.visualization.BarChart(document.getElementById('chart5_div'));
             chart.draw(data, options);
 
         }
     );
+  
+}
+
+function funcRefreshData(){
+	$.get("/site/refresh",
+              function(){
+                
+                funcRetrieveData();
+              
+              }
+        );
+}
+$(document).load(
+
+    function() {
+
+        $(document).load(
+            function() {
+                $('#myTabs a').click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                });
+            }
+        );
+
+    }
+);
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+google.setOnLoadCallback(drawChart);
+
+function drawChart(){
+  
+  funcRetrieveData();
+    
 }
